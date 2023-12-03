@@ -47,12 +47,12 @@ def top(input_list):
 
     For example:
 
-    >>> top(['Jan', 'Feb', 'Mar'])
-    ['Jan', 'Feb']
+        >>> top(['Jan', 'Feb', 'Mar'])
+        ['Jan', 'Feb']
 
     """
 
-    return input_list[:-1:-1]
+    return input_list[:-1]
 
 
 def first_three(input_list):
@@ -65,7 +65,7 @@ def first_three(input_list):
 
     """
 
-    return input_list[:3]
+    return input_list[0:3]
 
 
 def last_five(input_list):
@@ -91,7 +91,7 @@ def middle(input_list):
 
     """
 
-    return input_list[2:8]
+    return input_list[2:-2]
 
 
 def inner_four(input_list):
@@ -120,7 +120,7 @@ def inner_four_end(input_list):
 
     """
 
-    return input_list[::-1]
+    return input_list[-6:-2]
 
 
 def replace_head(input_list):
@@ -155,8 +155,9 @@ def replace_third_and_last(input_list):
     [0, 3, 37, 9, 12, 15, 18, 21, 24, 37]
 
     """
-    
-    pass
+    input_list[2] = 37
+    input_list[-1] = 37
+    return
 
 
 def backwards(input_list):
@@ -185,7 +186,7 @@ def every_other(input_list):
 
     """
 
-    return input_list[0::2]
+    return input_list[::2]
 
 
 def delete_third_and_seventh(input_list):
@@ -201,8 +202,10 @@ def delete_third_and_seventh(input_list):
     ['Do', 'Re', 'Fa', 'So', 'La', 'Do']
 
     """
-    
-    input_list = []
+    del input_list[6]
+    del input_list[2]
+
+    return 
 
 
 ### List Iteration Problems. Built-in methods are allowed for these! ###
@@ -216,8 +219,12 @@ def indices_of_positive_numbers(input_list):
     [0, 2, 3, 6]
 
     """
+    indices = []
+    for i, num in enumerate(input_list):
+        if num > 0:
+            indices.append(i)
+    return indices
 
-    pass
 
 
 def sum_repeats(input_list):
@@ -232,5 +239,9 @@ def sum_repeats(input_list):
     7
 
     """
-
-    pass
+    total = 0
+    for i in range(len(input_list) - 1):
+        if input_list[i] == input_list[i + 1]:
+            total += input_list[i]
+    
+    return total
